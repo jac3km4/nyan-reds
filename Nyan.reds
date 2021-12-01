@@ -28,8 +28,8 @@ protected cb func OnInitialize() -> Bool {
     .Add(Bitmap.PawBorder(), new Vector2(4, 0))
     .Add(Bitmap.PawFill(), new Vector2(4, 0));
 
-  let pawsBack = paws.Render(new Vector2(17, 19), PixelSize);
-  let pawsFront = paws.Render(new Vector2(30, 19), PixelSize);
+  let pawsBack = paws.Render(new Vector2(17, 18), PixelSize);
+  let pawsFront = paws.Render(new Vector2(30, 18), PixelSize);
   
   let tail = Layer.New()
     .Add(Bitmap.TailBorder())
@@ -66,15 +66,15 @@ protected cb func OnInitialize() -> Bool {
   this.GetRootCompoundWidget().RemoveAllChildren();
   this.GetRootCompoundWidget().AddChildWidget(canvas);
 
-  Animate.MoveLinearly(rainbow1, 0.4, 0, new Vector2(0, -4));
-  Animate.MoveLinearly(rainbow2, 0.4, 0, new Vector2(0, 4));
-  Animate.MoveLinearly(rainbow3, 0.4, 0, new Vector2(0, -4));
-  Animate.MoveLinearly(rainbow4, 0.4, 0, new Vector2(0, 4));
-  Animate.MoveLinearly(tail, 0.2, 0, new Vector2(0, 4));
-  Animate.MoveLinearly(pawsBack, 0.2, 0, new Vector2(4, 0));
-  Animate.MoveLinearly(pawsFront, 0.2, 0.1, new Vector2(4, 0));
-  Animate.MoveLinearly(body, 0.4, 0, new Vector2(0, 4));
-  Animate.MoveLinearly(head, 0.2, 0, new Vector2(4, 0));
+  Animate.MoveLinearly(rainbow1, 0.4, 0, new Vector2(0, -PixelSize));
+  Animate.MoveLinearly(rainbow2, 0.4, 0, new Vector2(0, PixelSize));
+  Animate.MoveLinearly(rainbow3, 0.4, 0, new Vector2(0, -PixelSize));
+  Animate.MoveLinearly(rainbow4, 0.4, 0, new Vector2(0, PixelSize));
+  Animate.MoveLinearly(tail, 0.2, 0, new Vector2(0, PixelSize));
+  Animate.MoveLinearly(pawsBack, 0.2, 0, new Vector2(PixelSize, 0));
+  Animate.MoveLinearly(pawsFront, 0.2, 0.1, new Vector2(PixelSize, 0));
+  Animate.MoveLinearly(body, 0.4, 0, new Vector2(0, PixelSize));
+  Animate.MoveLinearly(head, 0.2, 0, new Vector2(PixelSize, 0));
 }
 
 class Layer {
@@ -176,25 +176,24 @@ class Bitmap {
 
   public static func BodyBorder() -> ref<Bitmap> {
     let pixels = [
-      [2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],
-      [1,1],[20,1],
-      [0,2],[21,2],
-      [0,3],[21,3],
-      [0,4],[21,4],
-      [0,5],[21,5],
-      [0,6],[21,6],
-      [0,7],[21,7],
-      [0,8],[21,8],
-      [0,9],[21,9],
-      [0,10],[21,10],
-      [0,11],[21,11],
-      [0,12],[21,12],
-      [0,13],[21,13],
-      [0,14],[21,14],
-      [0,15],[21,15],
-      [0,16],[21,16],
-      [1,17],[20,17],
-      [2,18],[3,18],[4,18],[5,18],[6,18],[7,18],[8,18],[9,18],[10,18],[11,18],[12,18],[13,18],[14,18],[15,18],[16,18],[17,18],[18,18],[19,18]
+      [2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],
+      [1,1],[19,1],
+      [0,2],[20,2],
+      [0,3],[20,3],
+      [0,4],[20,4],
+      [0,5],[20,5],
+      [0,6],[20,6],
+      [0,7],[20,7],
+      [0,8],[20,8],
+      [0,9],[20,9],
+      [0,10],[20,10],
+      [0,11],[20,11],
+      [0,12],[20,12],
+      [0,13],[20,13],
+      [0,14],[20,14],
+      [0,15],[20,15],
+      [1,16],[19,16],
+      [2,17],[3,17],[4,17],[5,17],[6,17],[7,17],[8,17],[9,17],[10,17],[11,17],[12,17],[13,17],[14,17],[15,17],[16,17],[17,17],[18,17]
     ];
     return Bitmap.Create(pixels, Theme.Blackish());
   }
@@ -329,7 +328,7 @@ class Animate {
 
 class Theme {
   public static func Black() -> Color = new Color(Cast(0), Cast(0), Cast(0), Cast(255));
-  public static func Blackish() -> Color = new Color(Cast(36), Cast(36), Cast(36), Cast(255));
+  public static func Blackish() -> Color = new Color(Cast(18), Cast(18), Cast(18), Cast(255));
   public static func White() -> Color = new Color(Cast(255), Cast(255), Cast(255), Cast(255));
   public static func Gray() -> Color = new Color(Cast(220), Cast(220), Cast(220), Cast(255));
   public static func Pink() -> Color = new Color(Cast(255), Cast(163), Cast(177), Cast(255));
