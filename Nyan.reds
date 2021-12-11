@@ -129,8 +129,10 @@ class Bitmap {
       let rect = new inkRectangle();
       rect.SetSize(size, size);
       rect.SetTintColor(this.color);
-      let x = (Cast(pixel[0]) + offset.X) * size;
-      let y = (Cast(pixel[1]) + offset.Y) * size;
+      let pixelX: Float = Cast(pixel[0]);
+      let pixelY: Float = Cast(pixel[1]);
+      let x = (pixelX + offset.X) * size;
+      let y = (pixelY + offset.Y) * size;
       rect.SetTranslation(x, y);
 
       canvas.AddChildWidget(rect);
